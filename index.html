@@ -89,7 +89,7 @@
     .light-section { margin-top: 2.5rem; }
     .closing-line { margin: 1.5rem 0 0; font-family: Georgia, "Times New Roman", serif; font-size: clamp(1.55rem, 3.5vw, 2rem); font-style: italic; line-height: 1.45; color: var(--blue); }
     .edition { padding-top: clamp(2.5rem, 5vw, 4rem); margin-top: clamp(4rem, 8vw, 6rem); border-top: 1px solid var(--rule); }
-    .edition-grid { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(16rem, 1fr); gap: clamp(2rem, 5vw, 4rem); align-items: center; }
+    .edition-grid { display: grid; grid-template-columns: minmax(0, 1fr); max-width: var(--reading); margin-inline: auto; gap: clamp(2rem, 5vw, 4rem); align-items: center; }
     .edition-figure img { width: 100%; }
     .edition-copy > p { color: var(--body); font-size: 1rem; line-height: 1.8; }
     .edition-details { margin: 1.5rem 0 0; }
@@ -171,8 +171,8 @@
     </section>
 
     <section class="introduction reading story" id="painting" aria-label="About the painting">
-      <p class="lead">A sheep leans forward and presses its muzzle against Jesus’s cheek. He receives its affection with a smile. The familiarity between them is the heart of <i>The Kiss</i>.</p>
-      <p>Jordan painted <i>The Kiss</i> in gouache at age twenty, bringing warmth to the encounter through golden wheat, richly textured fleece, and the luminous folds of Jesus’s robe. Completed on the eve of Passover, it carries the association of the Passover lamb within a scene whose emotional meaning is immediate, even before its symbolism unfolds.</p>
+      <p class="lead">A sheep leans forward and presses its muzzle against Jesus' cheek.  He receives its affection with a smile.  The familiarity between them is the heart of <i>The Kiss</i>.</p>
+      <p>Jordan painted <i>The Kiss</i> in gouache at age twenty, completing it on the eve of Passover.</p>
     </section>
 
     <section class="story-section" id="materials" aria-labelledby="materials-title">
@@ -180,11 +180,11 @@
         <h2 class="section-heading" id="materials-title">The story within the paint</h2>
         <div class="paint-intro">
           <figure class="handprint"><img src="https://thekiss.michelleandjordancook.com/jordans-handprint.png" width="256" height="256" loading="lazy" alt="Jordan’s colorful handprint, made at age two, now her handmade-paint maker’s mark."></figure>
-          <p>Jordan’s work begins with the materials themselves. She makes her own paint, exploring the color, texture, and expressive possibilities of foraged ingredients. Her preparation of pigments belongs to a long tradition of paint-making practiced by ancient Egyptian artists, who ground minerals into powder and combined them with natural binders.</p>
+          <p>Jordan's work begins with the material itself.  She makes her own paint from foraged ingredients, then explores their expressive possibilities in texture and color. Her preparation of pigment follows the tradition of ancient Egyptian artists who ground minerals into powder and combined them with natural binders to create colors.</p>
         </div>
         <p class="maker-caption">Jordan’s handprint, made at age two, was her first painting. It now serves as the maker’s mark for her handmade paints.</p>
-        <p>For <i>The Kiss</i>, she used honey as a binder for pigments in gouache, an opaque form of watercolor valued for its rich color and soft, matte finish.</p>
-        <p>For his robe, Jordan made paint from oil pigments and frankincense. Frankincense was among the gifts brought to Jesus as a child and an ingredient in the sacred incense prescribed for the Tabernacle in Exodus 30:34–38. Here, a substance offered in worship becomes part of the paint with which she clothes him.</p>
+        <p>For the sheep, she used honey as a pigment binder for gouache, an opaque form of watercolor valued for its rich color and soft, matte finish.</p>
+        <p>For the robe, oil paint with pigment and frankincense. Frankincense was among the gifts brought to Jesus as a child and an ingredient in the sacred incense prescribed for the Tabernacle in Exodus 30:34-38.  Here, it is part of the paint with which he is clothed.</p>
       </div>
       <figure class="wide-figure">
         <img src="https://thekiss.michelleandjordancook.com/jordan-a-cook-painting-the-kiss.jpg" width="1584" height="1080" loading="lazy" alt="Jordan at her worktable, applying paint to the robe in the original The Kiss.">
@@ -200,7 +200,7 @@
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                   allowfullscreen></iframe>
         </div>
-        <figcaption class="caption">Jordan painting <i>The Kiss</i>. <a href="https://youtu.be/IkSeCwJzJTM" target="_blank" rel="noopener">Watch on YouTube</a>.</figcaption>
+        <figcaption class="caption">Jordan painting <i>The Kiss</i>.</figcaption>
       </figure>
 
       <div class="pigment-layout" aria-labelledby="hematite-title">
@@ -209,30 +209,22 @@
           <figcaption class="caption">Pigments beside <i>The Kiss</i> during painting.</figcaption>
         </figure>
         <div class="pigment-copy story">
-          <h3 id="hematite-title">Specular hematite</h3>
-          <p>For the shadows, Jordan used specular hematite, a form of iron oxide whose metallic, reflective particles give the paint a subtle shimmer. Despite its steel-gray appearance, the mineral leaves a characteristic red streak. Its name traces to the Greek <i>haima</i>, meaning blood.</p>
-          <p>Specular hematite was mined at Abu Gerida in Egypt’s Eastern Desert more than two thousand years ago. Its history, and the association with blood preserved in its name, give its presence in this Passover painting a particular resonance.</p>
+          <h3 id="hematite-title" class="closing-line">Even the shadows catch light.</h3>
+          <p>Look closely at the shadows. They contain a unique form of iron oxide called specular hematite that gives them a subtle shimmer in different light.</p>
+          <h3>What is specular hematite?</h3>
+          <p>Specular hematite was mined at Abu Gerida in Egypt's Eastern Desert more than two thousand years ago. Its name stems from the Greek <i>haima</i>, meaning blood, because it always leaves a distinct, rust- or cherry-red stripe when scratched. This association with sacrifice makes specular hematite especially appropriate for  a Passover painting.</p>
         </div>
       </div>
 
       <section class="tom-section reading story" aria-labelledby="tom-title">
-        <h3 id="tom-title">Tom, the anthropologist</h3>
+        <h3 id="tom-title">Tom, the Anthropologist</h3>
         <p>Jordan obtained this pigment from Tom Prang, an anthropologist and archaeologist who collected the mineral by hand and laboriously ground it into powder at his shop. Its preparation represents hours of work, and the supply he prepared is very limited.</p>
-        <p>His shop brings together dinosaur bones, hand tools, axes with jade blades, vials of meteorite dust, polished chambered nautilus shells, and bottles of ochres and vivianite. Tom’s knowledge ranges through archaeology, geology, botany, and ethnobotany. The pigment Jordan brought home came through the hands of someone accustomed to looking closely at what the earth holds.</p>
+        <p>Tom's shop is a vault of historic finds:  dinosaur bones, hand tools, axes with blades made of solid jade, vials filled with meteorite dust, polished chambered nautilus shells, and bottles of ochres and vivianite. His knowledge ranges through archaeology, geology, botany, and ethnobotany. The pigment Jordan brought home came through the hands of someone accustomed to looking closely at what the earth holds.</p>
       </section>
-      <div class="light-section reading story">
-        <p>In the original painting, Jordan depicts light through color, then introduces materials that respond to actual light. Against the soft, matte surface of the gouache, specular hematite lends a subtle shimmer to the darker passages, while frankincense oil paint reflects light in the highlights.</p>
-        <p>The viewer’s surroundings participate in the work. A slight change in illumination can reveal something in a shadow that was less apparent a moment before.</p>
-        <p class="closing-line">Even the shadows catch light.</p>
-      </div>
     </section>
 
     <section class="edition page-width" aria-labelledby="edition-title">
       <div class="edition-grid">
-        <figure class="edition-figure">
-          <img src="https://thekiss.michelleandjordancook.com/the-kiss-copyright-jordan-a-cook-framed.jpg" width="1354" height="1080" loading="lazy" alt="The Kiss presented in its dark frame and broad light-colored mat.">
-          <figcaption class="caption">The framed, hand-finished archival giclée.</figcaption>
-        </figure>
         <div class="edition-copy">
           <h2 id="edition-title">The framed edition</h2>
           <p>This first-edition archival giclée is hand-finished by the artist and presented under museum-quality anti-reflective glass.</p>
