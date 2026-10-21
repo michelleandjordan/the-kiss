@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Kiss · Jordan A. Cook</title>
+<meta name="description" content="[PLACEHOLDER: meta description, to be taken verbatim from the supplied copy]">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+<meta property="og:type" content="website">
+<meta property="og:title" content="The Kiss · Jordan A. Cook">
+<meta property="og:description" content="[PLACEHOLDER: same as the meta description]">
+<meta property="og:image" content="https://[YOUR-DOMAIN]/the-kiss-jordan-a-cook.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+/* ============================================================
+   THE KISS · standalone page
+   Layout, type, and components cloned from theflip.michelleandjordancook.com.
+   Colors come from the painting; change them in the variables below.
+   ============================================================ */
+:root {
+    --kiss-accent: #7a4a12;        /* small accents (text): umber of the fleece */
+    --kiss-accent-deep: #6b3f0f;   /* solid fills: top bar */
+    --kiss-gold: #c9973a;          /* wheat gold: rules and borders only, never text */
+    --kiss-dark: #111111;
+    --kiss-body: #333333;
+    --kiss-muted: #555555;
+    --kiss-track-small: 0.06em;    /* extra letter-spacing for sentence-case text under 16px */
+    --kiss-footer: #34445a;        /* sticky footer bar: blue-gray of the sky */
+    --kiss-bar-h: 3.88rem;         /* height of the sticky top bar and footer bar */
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    background: #ffffff;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+}
+body {
+    font-family: 'Roboto', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: var(--kiss-dark);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    padding-top: var(--kiss-bar-h);   /* room for the fixed top bar */
+}
+
+/* ---------- Sticky top bar (no tabs) ---------- */
+.kiss-topbar {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 950;
+    min-height: var(--kiss-bar-h);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 0.15rem 0.9rem;
+    padding: 0.6rem 1rem;
+    background: var(--kiss-accent-deep);
+    color: #ffffff;
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    text-align: center;
+    box-shadow: 0 2px 14px rgba(0, 0, 0, 0.18);
+}
+.kiss-topbar .sep { font-weight: 400; opacity: 0.7; }
+
+.kiss-page {
+    max-width: 1040px;
+    margin: 0 auto;
+    padding: 2.5rem clamp(1.5rem, 5vw, 3.5rem) calc(var(--kiss-bar-h) + 4rem) clamp(1.5rem, 5vw, 3.5rem);
+    text-align: left;
+    box-sizing: border-box;
+}
+.kiss-page * { box-sizing: border-box; }
+
+/* ---------- Type ---------- */
+.kiss-title {
+    font-size: clamp(2.1rem, 1.5rem + 2.4vw, 3.1rem);
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    line-height: 1.1;
+    text-transform: uppercase;
+    color: var(--kiss-dark);
+    margin: 0 0 0.6rem 0;
+    text-wrap: balance;
+}
+/* Artist and edition line under the title: modest size */
+.kiss-artist {
+    font-size: clamp(1rem, 0.95rem + 0.2vw, 1.1rem);
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    line-height: 1.5;
+    color: var(--kiss-dark);
+    margin: 0;
+    text-wrap: balance;
+}
+.kiss-section-title {
+    font-size: clamp(1.4rem, 1.15rem + 1vw, 1.95rem);
+    font-weight: 700;
+    line-height: 1.25;
+    color: var(--kiss-dark);
+    margin: 3.5rem 0 1.5rem 0;
+    text-wrap: balance;
+}
+.kiss-lead {
+    font-size: clamp(1.1rem, 1.02rem + 0.4vw, 1.3rem);
+    line-height: 1.7;
+    font-weight: 500;
+    color: var(--kiss-dark);
+    margin: 0 0 1.5rem 0;
+    text-wrap: pretty;
+}
+.kiss-story {
+    font-size: clamp(1.05rem, 1rem + 0.25vw, 1.2rem);
+    line-height: 1.8;
+    color: var(--kiss-body);
+    margin: 0 0 1.5rem 0;
+    text-wrap: pretty;
+}
+
+/* ---------- Hero: image beside the wall label ---------- */
+.kiss-hero {
+    display: flex;
+    flex-wrap: wrap;
+    gap: clamp(1.5rem, 4vw, 2.5rem);
+    align-items: center;
+    margin: 1rem 0 2.5rem 0;
+}
+.kiss-hero-media { flex: 1 1 18rem; min-width: 0; }
+.kiss-hero-info  { flex: 1 1 20rem; min-width: 0; }
+
+.kiss-hero-details {
+    margin-top: 1.5rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.12);
+}
+.kiss-hero-details > div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 0.2rem 1rem;
+    padding: 0.6rem 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+.kiss-hero-details .k {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--kiss-muted);
+    flex: 0 0 auto;
+}
+.kiss-hero-details .v {
+    flex: 1 1 11rem;
+    font-size: 0.95rem;
+    letter-spacing: var(--kiss-track-small);
+    color: var(--kiss-dark);
+    text-align: right;
+    text-wrap: balance;
+}
+
+/* ---------- IMAGE CONTAINERS ----------
+   A loaded image shows at its own natural proportions: full width, height
+   automatic, no cropping, no stretching. If the file is not there yet, the
+   container becomes a labeled placeholder showing the exact filename. */
+.kiss-ph { position: relative; margin: 0; }
+.kiss-ph img {
+    display: block;
+    width: 100%;
+    height: auto;
+    box-shadow: 0 0.375rem 1.5rem rgba(0, 0, 0, 0.14);
+}
+.kiss-ph .ph-label { display: none; }
+.kiss-ph.missing {
+    aspect-ratio: var(--ph-ratio, 4 / 3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    text-align: center;
+    background: #ececec;
+    border: 2px dashed rgba(107, 63, 15, 0.6);
+}
+.kiss-ph.missing img { display: none; }
+.kiss-ph.missing .ph-label {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    line-height: 1.7;
+    color: var(--kiss-dark);
+    overflow-wrap: anywhere;
+}
+.kiss-figure { margin: 2rem 0 0 0; }
+.kiss-caption {
+    font-size: 0.9rem;
+    font-style: italic;
+    letter-spacing: var(--kiss-track-small);
+    line-height: 1.6;
+    color: var(--kiss-muted);
+    margin: 0.75rem 0 1rem 0;
+    text-wrap: balance;
+}
+
+/* ---------- VIDEO CONTAINER ---------- */
+.kiss-video {
+    position: relative;
+    width: 100%;
+    margin: 2rem 0 0.6rem 0;
+    aspect-ratio: 16 / 9;
+    background: #000;
+    box-shadow: 0 0.375rem 1.5rem rgba(0, 0, 0, 0.18);
+}
+.kiss-video iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+/* For a portrait video, add this class: <div class="kiss-video kiss-video-vertical"> */
+.kiss-video.kiss-video-vertical {
+    width: clamp(12rem, 30vw, 16rem);
+    aspect-ratio: 9 / 16;
+}
+.kiss-video-ph {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    text-align: center;
+    background: #ececec;
+    border: 2px dashed rgba(107, 63, 15, 0.6);
+    box-shadow: none;
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    line-height: 1.7;
+    color: var(--kiss-dark);
+}
+.kiss-video-label {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    line-height: 1.7;
+    color: var(--kiss-muted);
+    margin: 0 0 2.5rem 0;
+    text-wrap: balance;
+}
+
+/* ---------- Handmade paint section with Jordan's handprint as maker's mark ---------- */
+.kiss-paint { display: flow-root; }
+.kiss-handprint {
+    float: left;
+    width: clamp(5.5rem, 14vw, 8.5rem);
+    margin: 0.1rem clamp(0.9rem, 2.5vw, 1.25rem) 0.5rem 0;
+}
+.kiss-handprint img { box-shadow: none; }
+.kiss-handprint.missing { padding: 0.4rem; }
+.kiss-handprint.missing .ph-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    line-height: 1.5;
+}
+
+/* ---------- Framed photograph ---------- */
+.kiss-framed {
+    border-top: 2px solid var(--kiss-gold);
+    margin: 4.5rem 0 0 0;
+    padding-top: 2.5rem;
+}
+.kiss-framed .kiss-figure { margin-top: 0; }
+
+/* ---------- About the artist accordion ---------- */
+.kiss-accordion {
+    margin: 4rem 0 0 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.14);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.14);
+}
+.kiss-accordion > summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 1.4rem 0.25rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--kiss-dark);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.kiss-accordion > summary::-webkit-details-marker { display: none; }
+.kiss-accordion > summary::after {
+    content: "";
+    width: 0.5rem;
+    height: 0.5rem;
+    border-right: 2px solid var(--kiss-accent);
+    border-bottom: 2px solid var(--kiss-accent);
+    transform: rotate(45deg);
+    transition: transform 0.25s ease;
+    margin-left: 1rem;
+    flex: 0 0 auto;
+}
+.kiss-accordion[open] > summary::after { transform: rotate(-135deg); }
+.kiss-accordion-body { padding: 0.25rem 0.25rem 1.75rem 0.25rem; }
+.kiss-accordion-body .kiss-figure { margin-top: 0.5rem; }
+.kiss-accordion-body .kiss-story:last-child { margin-bottom: 0; }
+
+/* ---------- Sticky footer bar (empty by design) ---------- */
+.kiss-footer-bar {
+    position: fixed;
+    left: 0; right: 0; bottom: 0;
+    z-index: 900;
+    min-height: var(--kiss-bar-h);
+    background: var(--kiss-footer);
+    box-shadow: 0 -2px 14px rgba(0, 0, 0, 0.18);
+}
+</style>
+</head>
+<body>
+
+<!-- ============ STICKY TOP BAR ============ -->
+<header class="kiss-topbar">
+    <span>The Kiss</span><span class="sep" aria-hidden="true">|</span><span>Jordan A. Cook</span>
+</header>
+
+<main class="kiss-page">
+
+    <!-- ============ HERO: THE PAINTING ALONE + WALL LABEL ============ -->
+    <div class="kiss-hero">
+        <div class="kiss-hero-media">
+            <figure class="kiss-ph" style="--ph-ratio: 4 / 3;">
+                <img src="the-kiss-jordan-a-cook.jpg"
+                     alt="A black-faced sheep with a thick gray-brown fleece presses its muzzle to the cheek of a smiling, bearded man in a white robe, seated in a golden wheat field under a soft blue-gray sky. The Kiss, a painting by Jordan A. Cook."
+                     onerror="this.closest('.kiss-ph').classList.add('missing')">
+                <span class="ph-label">Image placeholder<br>the-kiss-jordan-a-cook.jpg<br>The painting alone</span>
+            </figure>
+        </div>
+        <div class="kiss-hero-info">
+            <h1 class="kiss-title">The Kiss</h1>
+            <p class="kiss-artist">Jordan A. Cook | First edition, hand-finished archival giclee</p>
+            <div class="kiss-hero-details">
+                <div><span class="k">Medium</span><span class="v">Gouache,&nbsp;Oil</span></div>
+                <div><span class="k">Artwork Size</span><span class="v">30&nbsp;x&nbsp;24&nbsp;inches</span></div>
+                <div><span class="k">Framed</span><span class="v">42&nbsp;x&nbsp;36&nbsp;inches</span></div>
+                <div><span class="k">Printing</span><span class="v">150-year archival giclee, hand-finished by the&nbsp;artist</span></div>
+                <div><span class="k">Glass</span><span class="v">Museum-quality anti-reflective&nbsp;glass</span></div>
+                <div><span class="k">Released</span><span class="v">April&nbsp;19,&nbsp;2019</span></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============ SHORT DESCRIPTION ============ -->
+    <p class="kiss-lead">[PASTE SHORT DESCRIPTION HERE]</p>
+
+    <!-- ============ THE STORY WITHIN THE PAINT ============ -->
+    <h2 class="kiss-section-title" style="margin-top:3rem;">The story within the paint</h2>
+
+    <p class="kiss-story">[PASTE PARAGRAPH 1 HERE: The story within the paint]</p>
+    <p class="kiss-story">[PASTE PARAGRAPH 2 HERE: The story within the paint]</p>
+
+    <figure class="kiss-figure">
+        <div class="kiss-ph" style="--ph-ratio: 4 / 3;">
+            <img src="jordan-a-cook-painting-the-kiss.jpg"
+                 alt="Jordan A. Cook painting The Kiss."
+                 loading="lazy"
+                 onerror="this.closest('.kiss-ph').classList.add('missing')">
+            <span class="ph-label">Image placeholder<br>jordan-a-cook-painting-the-kiss.jpg<br>Jordan painting The Kiss</span>
+        </div>
+        <figcaption class="kiss-caption">[PASTE CAPTION HERE, OR DELETE THIS LINE]</figcaption>
+    </figure>
+
+    <!-- VIDEO CONTAINER (placeholder). To activate: delete the placeholder div and
+         remove the comment markers around the iframe, then replace VIDEO_ID with the
+         part of the YouTube link after v= -->
+    <div class="kiss-video kiss-video-ph">Video placeholder<br>YouTube embed, 16:9</div>
+    <!--
+    <div class="kiss-video">
+        <iframe src="https://www.youtube.com/embed/VIDEO_ID?rel=0&modestbranding=1&playsinline=1"
+                title="[WHAT THE VIDEO SHOWS], The Kiss by Jordan A. Cook"
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+    </div>
+    -->
+    <p class="kiss-video-label">Film &bull; [PASTE VIDEO LABEL HERE]</p>
+
+    <!-- ============ SPECULAR HEMATITE (handmade paint + maker's mark) ============ -->
+    <h2 class="kiss-section-title">Specular hematite</h2>
+
+    <figure class="kiss-figure" style="margin-top:0;">
+        <div class="kiss-ph" style="--ph-ratio: 4 / 3;">
+            <img src="the-kiss-handmade-pigments-jordan-a-cook.jpg"
+                 alt="Four bottles of handmade pigment made by Jordan A. Cook for The Kiss, shown in close-up."
+                 loading="lazy"
+                 onerror="this.closest('.kiss-ph').classList.add('missing')">
+            <span class="ph-label">Image placeholder<br>the-kiss-handmade-pigments-jordan-a-cook.jpg<br>Close-up of four pigment bottles</span>
+        </div>
+        <figcaption class="kiss-caption">[PASTE CAPTION HERE, OR DELETE THIS LINE]</figcaption>
+    </figure>
+
+    <div class="kiss-paint">
+        <figure class="kiss-ph kiss-handprint" style="--ph-ratio: 1 / 1;">
+            <img src="jordan-a-cook-first-handprint.png"
+                 alt="Jordan A. Cook's first handprint, her maker's mark."
+                 loading="lazy"
+                 onerror="this.closest('.kiss-ph').classList.add('missing')">
+            <span class="ph-label">Handprint placeholder<br>jordan-a-cook-first-handprint.png</span>
+        </figure>
+        <p class="kiss-story">[PASTE PARAGRAPH 1 HERE: Specular hematite]</p>
+        <p class="kiss-story">[PASTE PARAGRAPH 2 HERE: Specular hematite]</p>
+    </div>
+
+    <!-- ============ TOM, THE ANTHROPOLOGIST ============ -->
+    <h2 class="kiss-section-title">Tom, the anthropologist</h2>
+
+    <p class="kiss-story">[PASTE PARAGRAPH 1 HERE: Tom, the anthropologist]</p>
+    <p class="kiss-story">[PASTE PARAGRAPH 2 HERE: Tom, the anthropologist]</p>
+
+    <!-- ============ FINAL FRAMED PHOTOGRAPH ============ -->
+    <div class="kiss-framed">
+        <figure class="kiss-figure">
+            <div class="kiss-ph" style="--ph-ratio: 4 / 5;">
+                <img src="the-kiss-jordan-a-cook-framed.jpg"
+                     alt="The Kiss by Jordan A. Cook, shown framed."
+                     loading="lazy"
+                     onerror="this.closest('.kiss-ph').classList.add('missing')">
+                <span class="ph-label">Image placeholder<br>the-kiss-jordan-a-cook-framed.jpg<br>Final framed photograph</span>
+            </div>
+            <figcaption class="kiss-caption">[PASTE CAPTION HERE, OR DELETE THIS LINE]</figcaption>
+        </figure>
+    </div>
+
+    <!-- ============ ABOUT THE ARTIST ============ -->
+    <details class="kiss-accordion">
+        <summary>About the Artist, Jordan A. Cook</summary>
+        <div class="kiss-accordion-body">
+            <figure class="kiss-figure">
+                <div class="kiss-ph" style="--ph-ratio: 4 / 3;">
+                    <img src="jordan-a-cook-childhood-gallery.jpg"
+                         alt="Jordan A. Cook in her childhood gallery."
+                         loading="lazy"
+                         onerror="this.closest('.kiss-ph').classList.add('missing')">
+                    <span class="ph-label">Image placeholder<br>jordan-a-cook-childhood-gallery.jpg<br>Jordan in her childhood gallery</span>
+                </div>
+                <figcaption class="kiss-caption">[PASTE CAPTION HERE, OR DELETE THIS LINE]</figcaption>
+            </figure>
+            <p class="kiss-story">[PASTE PARAGRAPH 1 HERE: About the Artist]</p>
+            <p class="kiss-story">[PASTE PARAGRAPH 2 HERE: About the Artist]</p>
+        </div>
+    </details>
+
+</main>
+
+<!-- ============ STICKY FOOTER BAR (intentionally empty) ============ -->
+<div class="kiss-footer-bar" aria-hidden="true"></div>
+
+</body>
+</html>
