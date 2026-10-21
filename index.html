@@ -1,472 +1,270 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>The Kiss · Jordan A. Cook</title>
-<meta name="description" content="[PLACEHOLDER: meta description, to be taken verbatim from the supplied copy]">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-<meta property="og:type" content="website">
-<meta property="og:title" content="The Kiss · Jordan A. Cook">
-<meta property="og:description" content="[PLACEHOLDER: same as the meta description]">
-<meta property="og:image" content="https://thekiss.michelleandjordancook.com/the-kiss-copyright-2019-painting-by-jordan-a-cook.jpg">
-<meta name="twitter:card" content="summary_large_image">
-<style>
-/* ============================================================
-   THE KISS · standalone page
-   Layout, type, and components cloned from theflip.michelleandjordancook.com.
-   Colors come from the painting; change them in the variables below.
-   ============================================================ */
-:root {
-    --kiss-accent: #7a4a12;        /* small accents (text): umber of the fleece */
-    --kiss-accent-deep: #6b3f0f;   /* solid fills: top bar */
-    --kiss-gold: #c9973a;          /* wheat gold: rules and borders only, never text */
-    --kiss-dark: #111111;
-    --kiss-body: #333333;
-    --kiss-muted: #555555;
-    --kiss-track-small: 0.06em;    /* extra letter-spacing for sentence-case text under 16px */
-    --kiss-footer: #34445a;        /* sticky footer bar: blue-gray of the sky */
-    --kiss-bar-h: 3.88rem;         /* height of the sticky top bar and footer bar */
-}
-
-html, body {
-    margin: 0;
-    padding: 0;
-    background: #ffffff;
-    -webkit-text-size-adjust: 100%;
-    text-size-adjust: 100%;
-}
-body {
-    font-family: 'Roboto', -apple-system, BlinkMacSystemFont, sans-serif;
-    color: var(--kiss-dark);
-    -webkit-font-smoothing: antialiased;
-    text-rendering: optimizeLegibility;
-    padding-top: var(--kiss-bar-h);   /* room for the fixed top bar */
-}
-
-/* ---------- Sticky top bar (no tabs) ---------- */
-.kiss-topbar {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 950;
-    min-height: var(--kiss-bar-h);
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    gap: 0.15rem 0.9rem;
-    padding: 0.6rem 1rem;
-    background: var(--kiss-accent-deep);
-    color: #ffffff;
-    font-size: 0.9rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.14em;
-    text-align: center;
-    box-shadow: 0 2px 14px rgba(0, 0, 0, 0.18);
-}
-.kiss-topbar .sep { font-weight: 400; opacity: 0.7; }
-
-.kiss-page {
-    max-width: 1040px;
-    margin: 0 auto;
-    padding: 2.5rem clamp(1.5rem, 5vw, 3.5rem) calc(var(--kiss-bar-h) + 4rem) clamp(1.5rem, 5vw, 3.5rem);
-    text-align: left;
-    box-sizing: border-box;
-}
-.kiss-page * { box-sizing: border-box; }
-
-/* ---------- Type ---------- */
-.kiss-title {
-    font-size: clamp(2.1rem, 1.5rem + 2.4vw, 3.1rem);
-    font-weight: 700;
-    letter-spacing: 0.04em;
-    line-height: 1.1;
-    text-transform: uppercase;
-    color: var(--kiss-dark);
-    margin: 0 0 0.6rem 0;
-    text-wrap: balance;
-}
-/* Artist and edition line under the title: modest size */
-.kiss-artist {
-    font-size: clamp(1rem, 0.95rem + 0.2vw, 1.1rem);
-    font-weight: 500;
-    letter-spacing: 0.06em;
-    line-height: 1.5;
-    color: var(--kiss-dark);
-    margin: 0;
-    text-wrap: balance;
-}
-.kiss-section-title {
-    font-size: clamp(1.4rem, 1.15rem + 1vw, 1.95rem);
-    font-weight: 700;
-    line-height: 1.25;
-    color: var(--kiss-dark);
-    margin: 3.5rem 0 1.5rem 0;
-    text-wrap: balance;
-}
-.kiss-lead {
-    font-size: clamp(1.1rem, 1.02rem + 0.4vw, 1.3rem);
-    line-height: 1.7;
-    font-weight: 500;
-    color: var(--kiss-dark);
-    margin: 0 0 1.5rem 0;
-    text-wrap: pretty;
-}
-.kiss-story {
-    font-size: clamp(1.05rem, 1rem + 0.25vw, 1.2rem);
-    line-height: 1.8;
-    color: var(--kiss-body);
-    margin: 0 0 1.5rem 0;
-    text-wrap: pretty;
-}
-
-/* ---------- Hero: image beside the wall label ---------- */
-.kiss-hero {
-    display: flex;
-    flex-wrap: wrap;
-    gap: clamp(1.5rem, 4vw, 2.5rem);
-    align-items: center;
-    margin: 1rem 0 2.5rem 0;
-}
-.kiss-hero-media { flex: 1 1 18rem; min-width: 0; }
-.kiss-hero-info  { flex: 1 1 20rem; min-width: 0; }
-
-.kiss-hero-details {
-    margin-top: 1.5rem;
-    border-top: 1px solid rgba(0, 0, 0, 0.12);
-}
-.kiss-hero-details > div {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: baseline;
-    gap: 0.2rem 1rem;
-    padding: 0.6rem 0;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-}
-.kiss-hero-details .k {
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 0.14em;
-    color: var(--kiss-muted);
-    flex: 0 0 auto;
-}
-.kiss-hero-details .v {
-    flex: 1 1 11rem;
-    font-size: 0.95rem;
-    letter-spacing: var(--kiss-track-small);
-    color: var(--kiss-dark);
-    text-align: right;
-    text-wrap: balance;
-}
-
-/* ---------- IMAGE CONTAINERS ----------
-   A loaded image shows at its own natural proportions: full width, height
-   automatic, no cropping, no stretching. If the file is not there yet, the
-   container becomes a labeled placeholder showing the exact filename. */
-.kiss-ph { position: relative; margin: 0; }
-/* Each image scales down to fit inside the window: never wider than its column,
-   never taller than the space between the top bar and the footer bar.
-   Proportions stay exactly as photographed; nothing is cropped. */
-.kiss-ph img {
-    display: block;
-    width: auto;
-    height: auto;
-    max-width: 100%;
-    max-height: calc(100vh - (2 * var(--kiss-bar-h)) - 2rem);
-    max-height: calc(100dvh - (2 * var(--kiss-bar-h)) - 2rem);
-    box-shadow: 0 0.375rem 1.5rem rgba(0, 0, 0, 0.14);
-}
-.kiss-ph .ph-label { display: none; }
-.kiss-ph.missing {
-    aspect-ratio: var(--ph-ratio, 4 / 3);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 1rem;
-    text-align: center;
-    background: #ececec;
-    border: 2px dashed rgba(107, 63, 15, 0.6);
-}
-.kiss-ph.missing img { display: none; }
-.kiss-ph.missing .ph-label {
-    display: block;
-    font-size: 0.8rem;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    line-height: 1.7;
-    color: var(--kiss-dark);
-    overflow-wrap: anywhere;
-}
-.kiss-figure { margin: 2rem 0 0 0; }
-.kiss-caption {
-    font-size: 0.9rem;
-    font-style: italic;
-    letter-spacing: var(--kiss-track-small);
-    line-height: 1.6;
-    color: var(--kiss-muted);
-    margin: 0.75rem 0 1rem 0;
-    text-wrap: balance;
-}
-
-/* ---------- VIDEO CONTAINER ---------- */
-.kiss-video {
-    position: relative;
-    width: 100%;
-    margin: 2rem 0 0.6rem 0;
-    aspect-ratio: 16 / 9;
-    background: #000;
-    box-shadow: 0 0.375rem 1.5rem rgba(0, 0, 0, 0.18);
-}
-.kiss-video iframe {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    border: 0;
-}
-/* For a portrait video, add this class: <div class="kiss-video kiss-video-vertical"> */
-.kiss-video.kiss-video-vertical {
-    width: clamp(12rem, 30vw, 16rem);
-    aspect-ratio: 9 / 16;
-}
-.kiss-video-ph {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 1rem;
-    text-align: center;
-    background: #ececec;
-    border: 2px dashed rgba(107, 63, 15, 0.6);
-    box-shadow: none;
-    font-size: 0.8rem;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    line-height: 1.7;
-    color: var(--kiss-dark);
-}
-.kiss-video-label {
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    letter-spacing: 0.14em;
-    line-height: 1.7;
-    color: var(--kiss-muted);
-    margin: 0 0 2.5rem 0;
-    text-wrap: balance;
-}
-
-/* ---------- Handmade paint section with Jordan's handprint as maker's mark ---------- */
-.kiss-paint { display: flow-root; }
-.kiss-handprint {
-    float: left;
-    width: clamp(5.5rem, 14vw, 8.5rem);
-    margin: 0.1rem clamp(0.9rem, 2.5vw, 1.25rem) 0.5rem 0;
-}
-.kiss-handprint img { width: 100%; max-height: none; box-shadow: none; }
-.kiss-handprint.missing { padding: 0.4rem; }
-.kiss-handprint.missing .ph-label {
-    font-size: 0.7rem;
-    letter-spacing: 0.08em;
-    line-height: 1.5;
-}
-
-/* ---------- Framed photograph ---------- */
-.kiss-framed {
-    border-top: 2px solid var(--kiss-gold);
-    margin: 4.5rem 0 0 0;
-    padding-top: 2.5rem;
-}
-.kiss-framed .kiss-figure { margin-top: 0; }
-
-/* ---------- About the artist accordion ---------- */
-.kiss-accordion {
-    margin: 4rem 0 0 0;
-    border-top: 1px solid rgba(0, 0, 0, 0.14);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.14);
-}
-.kiss-accordion > summary {
-    list-style: none;
-    cursor: pointer;
-    padding: 1.4rem 0.25rem;
-    font-size: 0.85rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.16em;
-    color: var(--kiss-dark);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-.kiss-accordion > summary::-webkit-details-marker { display: none; }
-.kiss-accordion > summary::after {
-    content: "";
-    width: 0.5rem;
-    height: 0.5rem;
-    border-right: 2px solid var(--kiss-accent);
-    border-bottom: 2px solid var(--kiss-accent);
-    transform: rotate(45deg);
-    transition: transform 0.25s ease;
-    margin-left: 1rem;
-    flex: 0 0 auto;
-}
-.kiss-accordion[open] > summary::after { transform: rotate(-135deg); }
-.kiss-accordion-body { padding: 0.25rem 0.25rem 1.75rem 0.25rem; }
-.kiss-accordion-body .kiss-figure { margin-top: 0.5rem; }
-.kiss-accordion-body .kiss-story:last-child { margin-bottom: 0; }
-
-/* ---------- Sticky footer bar (empty by design) ---------- */
-.kiss-footer-bar {
-    position: fixed;
-    left: 0; right: 0; bottom: 0;
-    z-index: 900;
-    min-height: var(--kiss-bar-h);
-    background: var(--kiss-footer);
-    box-shadow: 0 -2px 14px rgba(0, 0, 0, 0.18);
-}
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#6b3f0f">
+  <title>The Kiss · Jordan A. Cook</title>
+  <meta name="description" content="The familiarity between Jesus and the sheep is the heart of The Kiss. Explore Jordan A. Cook’s painting, her handmade paints, and the story within its materials.">
+  <link rel="canonical" href="https://thekiss.michelleandjordancook.com/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="The Kiss · Jordan A. Cook">
+  <meta property="og:description" content="The familiarity between Jesus and the sheep is the heart of The Kiss. Explore the painting and the story within Jordan’s handmade paints.">
+  <meta property="og:url" content="https://thekiss.michelleandjordancook.com/">
+  <meta property="og:image" content="https://thekiss.michelleandjordancook.com/the-kiss-copyright-2019-painting-by-jordan-a-cook.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="898">
+  <meta property="og:image:alt" content="The Kiss, a painting of a sheep pressing its muzzle to Jesus’s cheek as he smiles, by Jordan A. Cook.">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --umber: #6b3f0f;
+      --ink: #171717;
+      --body: #343434;
+      --muted: #606060;
+      --blue: #34445a;
+      --rule: #dedbd6;
+      --gold: #c9973a;
+      --reading: 43rem;
+      --page: 72rem;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-padding-top: 6rem; -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+    body { padding-top: 3.88rem; padding-bottom: 3.88rem; margin: 0; background: #fff; color: var(--ink); font-family: Roboto, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; -webkit-font-smoothing: antialiased; }
+    a { color: var(--umber); text-decoration-thickness: 1px; text-underline-offset: .2em; }
+    a:hover { text-decoration-thickness: 2px; }
+    a:focus-visible, summary:focus-visible { outline: 3px solid var(--gold); outline-offset: 6px; }
+    img { display: block; max-width: 100%; height: auto; }
+    figure { margin: 0; }
+    p { margin: 0 0 1.35em; }
+    p:last-child { margin-bottom: 0; }
+    h1, h2, h3 { font-weight: 500; text-wrap: balance; }
+    h2 { margin: 0 0 1.2rem; font-size: clamp(1.6rem, 3vw, 2rem); line-height: 1.25; }
+    h3 { margin: 0 0 1.1rem; font-size: clamp(1.35rem, 2.5vw, 1.6rem); line-height: 1.3; }
+    [hidden] { display: none !important; }
+    .topbar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 950;
+      min-height: 3.88rem; display: flex; flex-wrap: wrap;
+      align-items: center; justify-content: center; gap: .15rem .9rem;
+      padding: .6rem 1rem; background: var(--umber); color: #fff;
+      font-size: .9rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: .14em; text-align: center;
+      box-shadow: 0 2px 14px rgba(0,0,0,.18);
+    }
+    .topbar .sep { font-weight: 400; opacity: .7; }
+    main { padding-top: clamp(1.5rem, 4vw, 3.5rem); }
+    .page-width { width: calc(100% - 5rem); max-width: var(--page); margin-inline: auto; }
+    .reading { width: calc(100% - 3rem); max-width: var(--reading); margin-inline: auto; }
+    .story { font-size: 1.125rem; line-height: 1.85; color: var(--body); text-wrap: pretty; }
+    .hero { display: grid; grid-template-columns: minmax(0, 1.8fr) minmax(15rem, .85fr); align-items: center; gap: clamp(2rem, 4vw, 3.5rem); }
+    .hero-image { width: 100%; max-height: calc(100svh - 9rem); object-fit: contain; object-position: left center; }
+    .hero-label { padding: 1rem 0; }
+    .hero-label h1 { margin: 0 0 .55rem; font-size: clamp(2.1rem, 4.2vw, 3.2rem); line-height: 1.1; letter-spacing: -.025em; }
+    .artist-name { margin: 0; color: var(--body); font-size: 1.075rem; }
+    .hero-meta { margin: 1.7rem 0 0; border-top: 1px solid var(--rule); }
+    .hero-meta div { padding: .75rem 0; border-bottom: 1px solid var(--rule); }
+    dt { color: var(--muted); font-size: .72rem; line-height: 1.5; letter-spacing: .075em; text-transform: uppercase; }
+    dd { margin: .22rem 0 0; font-size: .95rem; line-height: 1.6; }
+    .introduction { margin-top: clamp(2.8rem, 6vw, 5rem); }
+    .lead { color: var(--ink); font-size: clamp(1.25rem, 2.5vw, 1.5rem); line-height: 1.65; }
+    .story-section { margin-top: clamp(3.5rem, 7vw, 6rem); }
+    .section-heading { padding-top: 1.6rem; border-top: 1px solid var(--rule); }
+    .paint-intro { display: flow-root; }
+    .handprint { float: left; width: 5.6rem; margin: .1rem 1.25rem .4rem 0; }
+    .handprint img { width: 100%; }
+    .maker-caption { clear: both; padding-top: .75rem; margin-bottom: 2rem; color: var(--muted); font-size: .85rem; line-height: 1.65; font-style: italic; }
+    .caption { margin: .8rem 0 0; color: var(--muted); font-size: .83rem; line-height: 1.65; }
+    .wide-figure { width: calc(100% - 5rem); max-width: 55rem; margin: 2.8rem auto 0; }
+    .wide-figure img { width: 100%; }
+    .painting-film { width: calc(100% - 5rem); max-width: 55rem; margin: 2.8rem auto 0; }
+    .video-frame { aspect-ratio: 16 / 9; background: #111; }
+    .video-frame iframe { display: block; width: 100%; height: 100%; border: 0; }
+    .pigment-layout { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); align-items: center; gap: clamp(2rem, 5vw, 3.8rem); width: calc(100% - 5rem); max-width: 62rem; margin: clamp(3.5rem, 7vw, 5rem) auto 0; }
+    .pigment-layout img { width: 100%; }
+    .pigment-copy.story { font-size: 1.05rem; line-height: 1.85; }
+    .tom-section { margin-top: clamp(3rem, 6vw, 4.5rem); }
+    .light-section { margin-top: 2.5rem; }
+    .closing-line { margin: 1.5rem 0 0; font-family: Georgia, "Times New Roman", serif; font-size: clamp(1.55rem, 3.5vw, 2rem); font-style: italic; line-height: 1.45; color: var(--blue); }
+    .edition { padding-top: clamp(2.5rem, 5vw, 4rem); margin-top: clamp(4rem, 8vw, 6rem); border-top: 1px solid var(--rule); }
+    .edition-grid { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(16rem, 1fr); gap: clamp(2rem, 5vw, 4rem); align-items: center; }
+    .edition-figure img { width: 100%; }
+    .edition-copy > p { color: var(--body); font-size: 1rem; line-height: 1.8; }
+    .edition-details { margin: 1.5rem 0 0; }
+    .edition-details div { padding: .7rem 0; border-top: 1px solid var(--rule); }
+    .edition-details dd { font-size: .95rem; }
+    .artist-section { max-width: 62rem; margin-top: 4rem; margin-bottom: 4rem; }
+    .artist-section details { border-block: 1px solid var(--rule); }
+    .artist-section summary { display: flex; justify-content: space-between; align-items: center; gap: 1.5rem; padding: 1.5rem 0; list-style: none; cursor: pointer; font-size: 1.05rem; line-height: 1.5; }
+    .artist-section summary::-webkit-details-marker { display: none; }
+    .artist-section summary::after { content: "+"; color: var(--umber); font-size: 1.6rem; line-height: 1; font-weight: 400; }
+    .artist-section details[open] summary::after { content: "−"; }
+    .artist-grid { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.2fr); gap: 2.5rem; padding: 1rem 0 2.2rem; align-items: start; }
+    .artist-grid img { width: 100%; }
+    .artist-copy { color: var(--body); font-size: 1rem; line-height: 1.85; }
+    .site-footer {
+      position: fixed; left: 0; right: 0; bottom: 0; z-index: 900;
+      min-height: 3.88rem; background: var(--blue);
+      box-shadow: 0 -2px 14px rgba(0,0,0,.18);
+    }
+    @media (min-width: 1600px) { .story { font-size: 1.18rem; } }
+    @media (max-width: 850px) {
+      .hero { grid-template-columns: minmax(0, 1fr); gap: 1.5rem; max-width: 48rem; }
+      .hero-image { max-height: calc(100svh - 7.5rem); object-position: center; }
+      .hero-label { padding: 0; }
+      .hero-label h1 { font-size: 2.35rem; }
+      .hero-meta { display: grid; grid-template-columns: 1fr 1fr; gap: 0 2rem; margin-top: 1.2rem; }
+      .hero-meta div { padding: .65rem 0; }
+      .hero-meta div:last-child { grid-column: 1 / -1; }
+      .introduction { margin-top: 3rem; }
+      .pigment-layout { grid-template-columns: 1fr; max-width: var(--reading); gap: 1.8rem; }
+      .pigment-copy { order: -1; }
+      .pigment-copy.story { font-size: 1.125rem; }
+      .edition-grid { grid-template-columns: 1fr; max-width: 43rem; margin: auto; gap: 2rem; }
+      .edition-copy { max-width: 35rem; }
+      .artist-grid { grid-template-columns: 1fr; }
+      .artist-grid figure { max-width: 30rem; }
+    }
+    @media (max-width: 540px) {
+      .page-width, .wide-figure, .painting-film, .pigment-layout, .reading { width: calc(100% - 2.5rem); }
+      .story, .pigment-copy.story { font-size: 1.05rem; line-height: 1.82; }
+      .lead { font-size: 1.22rem; line-height: 1.65; }
+      .hero-meta { gap: 0 1rem; }
+      .hero-meta dd { font-size: .9rem; }
+      .handprint { width: 4.7rem; margin-right: .9rem; }
+      .maker-caption { font-size: .8rem; }
+      .artist-grid { gap: 1.5rem; }
+    }
+    @media print {
+      .topbar, .site-footer { display: none; }
+      body { font-size: 11pt; padding: 0; }
+      main { padding-top: 0; }
+      .hero { grid-template-columns: 1.5fr 1fr; }
+      .hero-image { max-height: 65vh; }
+      .reading { max-width: 100%; }
+      figure, .edition-grid { break-inside: avoid; }
+      .artist-section details:not([open]) { display: none; }
+    }
+  </style>
 </head>
-<body>
-
-<!-- ============ STICKY TOP BAR ============ -->
-<header class="kiss-topbar">
+<body id="top">
+  <header class="topbar">
     <span>The Kiss</span><span class="sep" aria-hidden="true">|</span><span>Jordan A. Cook</span>
-</header>
+  </header>
 
-<main class="kiss-page">
+  <main>
+    <section class="hero page-width" aria-labelledby="painting-title">
+      <figure>
+        <img class="hero-image" src="https://thekiss.michelleandjordancook.com/the-kiss-copyright-2019-painting-by-jordan-a-cook.jpg" width="1200" height="898" fetchpriority="high" alt="The Kiss: a sheep presses its muzzle to Jesus’s cheek as he smiles, seated among golden wheat.">
+      </figure>
+      <div class="hero-label">
+        <h1 id="painting-title">The Kiss</h1>
+        <p class="artist-name">Jordan A. Cook</p>
+        <dl class="hero-meta">
+          <div><dt>Original medium</dt><dd>Gouache &amp; oil</dd></div>
+          <div><dt>Artist’s age</dt><dd>Twenty</dd></div>
+          <div><dt>First released</dt><dd>April 19, 2019<br>The eve of Passover</dd></div>
+        </dl>
+      </div>
+    </section>
 
-    <!-- ============ HERO: THE PAINTING ALONE + WALL LABEL ============ -->
-    <div class="kiss-hero">
-        <div class="kiss-hero-media">
-            <figure class="kiss-ph" style="--ph-ratio: 4 / 3;">
-                <img src="the-kiss-copyright-2019-painting-by-jordan-a-cook.jpg"
-                     alt="A black-faced sheep with a thick gray-brown fleece presses its muzzle to the cheek of a smiling, bearded man in a white robe, seated in a golden wheat field under a soft blue-gray sky. The Kiss, a painting by Jordan A. Cook."
-                     onerror="this.closest('.kiss-ph').classList.add('missing')">
-                <span class="ph-label">Image placeholder<br>the-kiss-copyright-2019-painting-by-jordan-a-cook.jpg<br>The painting alone</span>
-            </figure>
+    <section class="introduction reading story" id="painting" aria-label="About the painting">
+      <p class="lead">A sheep leans forward and presses its muzzle against Jesus’s cheek. He receives its affection with a smile. The familiarity between them is the heart of <i>The Kiss</i>.</p>
+      <p>Jordan painted <i>The Kiss</i> in gouache at age twenty, bringing warmth to the encounter through golden wheat, richly textured fleece, and the luminous folds of Jesus’s robe. Completed on the eve of Passover, it carries the association of the Passover lamb within a scene whose emotional meaning is immediate, even before its symbolism unfolds.</p>
+    </section>
+
+    <section class="story-section" id="materials" aria-labelledby="materials-title">
+      <div class="reading story">
+        <h2 class="section-heading" id="materials-title">The story within the paint</h2>
+        <div class="paint-intro">
+          <figure class="handprint"><img src="https://thekiss.michelleandjordancook.com/jordans-handprint.png" width="256" height="256" loading="lazy" alt="Jordan’s colorful handprint, made at age two, now her handmade-paint maker’s mark."></figure>
+          <p>Jordan’s work begins with the materials themselves. She makes her own paint, exploring the color, texture, and expressive possibilities of foraged ingredients. Her preparation of pigments belongs to a long tradition of paint-making practiced by ancient Egyptian artists, who ground minerals into powder and combined them with natural binders.</p>
         </div>
-        <div class="kiss-hero-info">
-            <h1 class="kiss-title">The Kiss</h1>
-            <p class="kiss-artist">Jordan A. Cook | First edition, hand-finished archival giclee</p>
-            <div class="kiss-hero-details">
-                <div><span class="k">Medium</span><span class="v">Gouache,&nbsp;Oil</span></div>
-                <div><span class="k">Artwork Size</span><span class="v">30&nbsp;x&nbsp;24&nbsp;inches</span></div>
-                <div><span class="k">Framed</span><span class="v">42&nbsp;x&nbsp;36&nbsp;inches</span></div>
-                <div><span class="k">Printing</span><span class="v">150-year archival giclee, hand-finished by the&nbsp;artist</span></div>
-                <div><span class="k">Glass</span><span class="v">Museum-quality anti-reflective&nbsp;glass</span></div>
-                <div><span class="k">Released</span><span class="v">April&nbsp;19,&nbsp;2019</span></div>
-            </div>
+        <p class="maker-caption">Jordan’s handprint, made at age two, was her first painting. It now serves as the maker’s mark for her handmade paints.</p>
+        <p>For <i>The Kiss</i>, she used honey as a binder for pigments in gouache, an opaque form of watercolor valued for its rich color and soft, matte finish.</p>
+        <p>For his robe, Jordan made paint from oil pigments and frankincense. Frankincense was among the gifts brought to Jesus as a child and an ingredient in the sacred incense prescribed for the Tabernacle in Exodus 30:34–38. Here, a substance offered in worship becomes part of the paint with which she clothes him.</p>
+      </div>
+      <figure class="wide-figure">
+        <img src="https://thekiss.michelleandjordancook.com/jordan-a-cook-painting-the-kiss.jpg" width="1584" height="1080" loading="lazy" alt="Jordan at her worktable, applying paint to the robe in the original The Kiss.">
+        <figcaption class="caption">Jordan working on <i>The Kiss</i>.</figcaption>
+      </figure>
+
+      <figure class="painting-film">
+        <div class="video-frame">
+          <iframe src="https://www.youtube-nocookie.com/embed/IkSeCwJzJTM?playsinline=1"
+                  title="Jordan A. Cook painting The Kiss"
+                  loading="lazy"
+                  referrerpolicy="strict-origin-when-cross-origin"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen></iframe>
         </div>
-    </div>
+        <figcaption class="caption">Jordan painting <i>The Kiss</i>. <a href="https://youtu.be/IkSeCwJzJTM" target="_blank" rel="noopener">Watch on YouTube</a>.</figcaption>
+      </figure>
 
-    <!-- ============ SHORT DESCRIPTION ============ -->
-    <p class="kiss-lead">[PASTE SHORT DESCRIPTION HERE]</p>
-
-    <!-- ============ THE STORY WITHIN THE PAINT ============ -->
-    <h2 class="kiss-section-title" style="margin-top:3rem;">The story within the paint</h2>
-
-    <p class="kiss-story">[PASTE PARAGRAPH 1 HERE: The story within the paint]</p>
-    <p class="kiss-story">[PASTE PARAGRAPH 2 HERE: The story within the paint]</p>
-
-    <figure class="kiss-figure">
-        <div class="kiss-ph" style="--ph-ratio: 4 / 3;">
-            <img src="jordan-a-cook-painting-the-kiss.jpg"
-                 alt="Jordan A. Cook painting The Kiss."
-                 loading="lazy"
-                 onerror="this.closest('.kiss-ph').classList.add('missing')">
-            <span class="ph-label">Image placeholder<br>jordan-a-cook-painting-the-kiss.jpg<br>Jordan painting The Kiss</span>
-        </div>
-        <figcaption class="kiss-caption">[PASTE CAPTION HERE, OR DELETE THIS LINE]</figcaption>
-    </figure>
-
-    <!-- VIDEO CONTAINER (placeholder). To activate: delete the placeholder div and
-         remove the comment markers around the iframe, then replace VIDEO_ID with the
-         part of the YouTube link after v= -->
-    <div class="kiss-video kiss-video-ph">Video placeholder<br>YouTube embed, 16:9</div>
-    <!--
-    <div class="kiss-video">
-        <iframe src="https://www.youtube.com/embed/VIDEO_ID?rel=0&modestbranding=1&playsinline=1"
-                title="[WHAT THE VIDEO SHOWS], The Kiss by Jordan A. Cook"
-                loading="lazy"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen></iframe>
-    </div>
-    -->
-    <p class="kiss-video-label">Film &bull; [PASTE VIDEO LABEL HERE]</p>
-
-    <!-- ============ SPECULAR HEMATITE (handmade paint + maker's mark) ============ -->
-    <h2 class="kiss-section-title">Specular hematite</h2>
-
-    <figure class="kiss-figure" style="margin-top:0;">
-        <div class="kiss-ph" style="--ph-ratio: 4 / 3;">
-            <img src="the-kiss-pigments-jordan-a-cook.jpg"
-                 alt="Four bottles of handmade pigment made by Jordan A. Cook for The Kiss, shown in close-up."
-                 loading="lazy"
-                 onerror="this.closest('.kiss-ph').classList.add('missing')">
-            <span class="ph-label">Image placeholder<br>the-kiss-pigments-jordan-a-cook.jpg<br>Close-up of four pigment bottles</span>
-        </div>
-        <figcaption class="kiss-caption">[PASTE CAPTION HERE, OR DELETE THIS LINE]</figcaption>
-    </figure>
-
-    <div class="kiss-paint">
-        <figure class="kiss-ph kiss-handprint" style="--ph-ratio: 1 / 1;">
-            <img src="jordans-handprint.png"
-                 alt="Jordan A. Cook's first handprint, her maker's mark."
-                 loading="lazy"
-                 onerror="this.closest('.kiss-ph').classList.add('missing')">
-            <span class="ph-label">Handprint placeholder<br>jordans-handprint.png</span>
+      <div class="pigment-layout" aria-labelledby="hematite-title">
+        <figure>
+          <img src="https://thekiss.michelleandjordancook.com/the-kiss-pigments-jordan-a-cook.jpg" width="2048" height="1536" loading="lazy" alt="Four pigment bottles and painting materials beside the original The Kiss.">
+          <figcaption class="caption">Pigments beside <i>The Kiss</i> during painting.</figcaption>
         </figure>
-        <p class="kiss-story">[PASTE PARAGRAPH 1 HERE: Specular hematite]</p>
-        <p class="kiss-story">[PASTE PARAGRAPH 2 HERE: Specular hematite]</p>
-    </div>
-
-    <!-- ============ TOM, THE ANTHROPOLOGIST ============ -->
-    <h2 class="kiss-section-title">Tom, the anthropologist</h2>
-
-    <p class="kiss-story">[PASTE PARAGRAPH 1 HERE: Tom, the anthropologist]</p>
-    <p class="kiss-story">[PASTE PARAGRAPH 2 HERE: Tom, the anthropologist]</p>
-
-    <!-- ============ FINAL FRAMED PHOTOGRAPH ============ -->
-    <div class="kiss-framed">
-        <figure class="kiss-figure">
-            <div class="kiss-ph" style="--ph-ratio: 4 / 5;">
-                <img src="the-kiss-copyright-jordan-a-cook-framed.jpg"
-                     alt="The Kiss by Jordan A. Cook, shown framed."
-                     loading="lazy"
-                     onerror="this.closest('.kiss-ph').classList.add('missing')">
-                <span class="ph-label">Image placeholder<br>the-kiss-copyright-jordan-a-cook-framed.jpg<br>Final framed photograph</span>
-            </div>
-            <figcaption class="kiss-caption">[PASTE CAPTION HERE, OR DELETE THIS LINE]</figcaption>
-        </figure>
-    </div>
-
-    <!-- ============ ABOUT THE ARTIST ============ -->
-    <details class="kiss-accordion">
-        <summary>About the Artist, Jordan A. Cook</summary>
-        <div class="kiss-accordion-body">
-            <figure class="kiss-figure">
-                <div class="kiss-ph" style="--ph-ratio: 4 / 3;">
-                    <img src="jordan-a-cook-childhood-gallery.jpg"
-                         alt="Jordan A. Cook in her childhood gallery."
-                         loading="lazy"
-                         onerror="this.closest('.kiss-ph').classList.add('missing')">
-                    <span class="ph-label">Image placeholder<br>jordan-a-cook-childhood-gallery.jpg<br>Jordan in her childhood gallery</span>
-                </div>
-                <figcaption class="kiss-caption">[PASTE CAPTION HERE, OR DELETE THIS LINE]</figcaption>
-            </figure>
-            <p class="kiss-story">[PASTE PARAGRAPH 1 HERE: About the Artist]</p>
-            <p class="kiss-story">[PASTE PARAGRAPH 2 HERE: About the Artist]</p>
+        <div class="pigment-copy story">
+          <h3 id="hematite-title">Specular hematite</h3>
+          <p>For the shadows, Jordan used specular hematite, a form of iron oxide whose metallic, reflective particles give the paint a subtle shimmer. Despite its steel-gray appearance, the mineral leaves a characteristic red streak. Its name traces to the Greek <i>haima</i>, meaning blood.</p>
+          <p>Specular hematite was mined at Abu Gerida in Egypt’s Eastern Desert more than two thousand years ago. Its history, and the association with blood preserved in its name, give its presence in this Passover painting a particular resonance.</p>
         </div>
-    </details>
+      </div>
 
-</main>
+      <section class="tom-section reading story" aria-labelledby="tom-title">
+        <h3 id="tom-title">Tom, the anthropologist</h3>
+        <p>Jordan obtained this pigment from Tom Prang, an anthropologist and archaeologist who collected the mineral by hand and laboriously ground it into powder at his shop. Its preparation represents hours of work, and the supply he prepared is very limited.</p>
+        <p>His shop brings together dinosaur bones, hand tools, axes with jade blades, vials of meteorite dust, polished chambered nautilus shells, and bottles of ochres and vivianite. Tom’s knowledge ranges through archaeology, geology, botany, and ethnobotany. The pigment Jordan brought home came through the hands of someone accustomed to looking closely at what the earth holds.</p>
+      </section>
+      <div class="light-section reading story">
+        <p>In the original painting, Jordan depicts light through color, then introduces materials that respond to actual light. Against the soft, matte surface of the gouache, specular hematite lends a subtle shimmer to the darker passages, while frankincense oil paint reflects light in the highlights.</p>
+        <p>The viewer’s surroundings participate in the work. A slight change in illumination can reveal something in a shadow that was less apparent a moment before.</p>
+        <p class="closing-line">Even the shadows catch light.</p>
+      </div>
+    </section>
 
-<!-- ============ STICKY FOOTER BAR (intentionally empty) ============ -->
-<div class="kiss-footer-bar" aria-hidden="true"></div>
+    <section class="edition page-width" aria-labelledby="edition-title">
+      <div class="edition-grid">
+        <figure class="edition-figure">
+          <img src="https://thekiss.michelleandjordancook.com/the-kiss-copyright-jordan-a-cook-framed.jpg" width="1354" height="1080" loading="lazy" alt="The Kiss presented in its dark frame and broad light-colored mat.">
+          <figcaption class="caption">The framed, hand-finished archival giclée.</figcaption>
+        </figure>
+        <div class="edition-copy">
+          <h2 id="edition-title">The framed edition</h2>
+          <p>This first-edition archival giclée is hand-finished by the artist and presented under museum-quality anti-reflective glass.</p>
+          <dl class="edition-details">
+            <div><dt>Edition</dt><dd>First edition</dd></div>
+            <div><dt>Printing</dt><dd>200-year archival giclée,<br>hand-finished by the artist</dd></div>
+            <div><dt>Artwork dimensions</dt><dd>30 × 24 inches</dd></div>
+            <div><dt>Framed dimensions</dt><dd>42 × 36 inches</dd></div>
+            <div><dt>Glazing</dt><dd>Museum-quality anti-reflective glass</dd></div>
+          </dl>
+        </div>
+      </div>
+    </section>
 
+    <section class="artist-section page-width" id="artist" aria-label="About the artist">
+      <details>
+        <summary>About the artist, Jordan A. Cook</summary>
+        <div class="artist-grid">
+          <figure>
+            <img src="https://thekiss.michelleandjordancook.com/jordan-a-cook-childhood-gallery.jpg" width="1030" height="687" loading="lazy" alt="Young Jordan standing with arms outstretched in a gallery filled with framed paintings.">
+            <figcaption class="caption">Jordan in her childhood gallery. She has been painting since she was two.</figcaption>
+          </figure>
+          <div class="artist-copy">
+            <p>Jordan A. Cook is an internationally exhibited artist, pianist, and piano rebuilder. She makes her own paint and ink from foraged materials, including rock, clay, and charcoal. In works such as <a href="https://theflip.michelleandjordancook.com/" target="_blank" rel="noopener"><i>The Flip</i></a>, she incorporates materials gathered from the very history the painting depicts, allowing the substance of the work to help tell its story.</p>
+            <p>Her paintings have been exhibited internationally, including in Terezín and Kyiv. Through Arukah Piano, she also rebuilds rare WWII-era Steinway Victory Verticals, bringing surviving instruments and their histories forward.</p>
+            <p>Her painting and rebuilding share a concern for what materials can carry across time. Working with earth pigments or a surviving wartime instrument, Jordan brings the past forward so another generation can form its own relationship with it.</p>
+          </div>
+        </div>
+      </details>
+    </section>
+  </main>
+
+  <div class="site-footer" aria-hidden="true"></div>
 </body>
 </html>
